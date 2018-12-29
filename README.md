@@ -8,19 +8,19 @@ Read the instructions to use this library
 
 - import / require the library from the module:
 ```
-import { Game, Player } from 'library'
+const { CardGame } = require('./lib')
 ```
 
 - create the players for the game:
 ```
-let playerOne = new Player('Jim')
-let playerTwo = new Player('Bob')
+let playerOne = CardGame.player('Jim')
+let playerTwo = CardGame.player('Bob')
 ```
 
 - create the game and the card deck for the game:
 ```
-let deck = new Deck()
-let game = new Game(deck)
+let deck = CardGame.deck()
+let game = CardGame.game(deck)
 ```
 
 - Add the players to the game:
@@ -29,17 +29,10 @@ game.addPlayer(playerOne)
 game.addPlayer(playerTwo)
 ```
 
-- Start the game with the first round:
-```
-game.firstRound()
-```
-
 - Run the next rounds of the game, 20 rounds for this example:
 ```
-for(let i = 0; i < 20; i++)
-{
-    game.nextRound()
-}
+let result = game.start()
+console.log(result)
 ```
 
 2. Card API
